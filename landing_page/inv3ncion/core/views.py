@@ -1,0 +1,14 @@
+from django.shortcuts import render
+
+from item.models import Category, Curso
+# Create your views here.
+def index(request):
+    items = Curso.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'core/index.html', {
+        'categories': categories,
+        'items': items,
+    })
+
+def contact(request):
+    return render(request, 'core/contact.html')
