@@ -21,12 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(mrab+#aftwo(w$$!fwjyctj%9tmst7k6$r7@e(o=q!-o=jsaz'
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['inv3ncion.cl', '146.190.52.186']
 
 
 # Application definition
@@ -78,8 +77,12 @@ WSGI_APPLICATION = 'inv3ncion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'liafer_inv3ncion',
+        'USER': 'liafer_inv3ncion',
+        'PASSWORD': 'AniReina.2202',
+        'HOST': '186.64.116.95',  # or 'localhost' if Django is on the same server
+        'PORT': '3306',  # MySQL default port
     }
 }
 
